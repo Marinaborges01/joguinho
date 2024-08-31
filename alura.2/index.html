@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura na Floresta Encantada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- O conteúdo HTML aqui -->
+
+</body>
+</html>
+
+</head>
+<body>
+
+    <div id="story">
+        <h1>Aventura na Floresta Encantada</h1>
+        <p>Você está em uma floresta encantada, cheia de mistérios e maravilhas. À sua frente, há uma bifurcação no caminho. Você pode seguir pelo caminho da esquerda, onde há rumores de um lago mágico, ou pelo caminho da direita, que leva a uma caverna misteriosa.</p>
+        <div id="options">
+            <span class="option" onclick="choosePath('left')">Seguir pelo caminho da esquerda</span>
+            <span class="option" onclick="choosePath('right')">Seguir pelo caminho da direita</span>
+        </div>
+    </div>
+
+    <div id="result" class="hidden"></div>
+
+    <script>
+        function choosePath(path) {
+            const storyDiv = document.getElementById('story');
+            const resultDiv = document.getElementById('result');
+            
+            if (path === 'left') {
+                storyDiv.innerHTML = `
+                    <h1>O Lago Mágico</h1>
+                    <p>Você segue pelo caminho da esquerda e encontra um lago encantado. A água brilha com uma luz azulada e há uma pequena barca à beira do lago. Você pode:</p>
+                    <span class="option" onclick="rowBoat()">Navegar no lago com a barca</span>
+                    <span class="option" onclick="exploreForest()">Explorar a floresta ao redor do lago</span>
+                `;
+            } else if (path === 'right') {
+                storyDiv.innerHTML = `
+                    <h1>A Caverna Misteriosa</h1>
+                    <p>Você segue pelo caminho da direita e chega à entrada de uma caverna. Dentro, há uma luz fraca e um cheiro de terra úmida. Você pode:</p>
+                    <span class="option" onclick="enterCave()">Entrar na caverna</span>
+                    <span class="option" onclick="inspectCaveEntrance()">Inspecionar a entrada da caverna</span>
+                `;
+            }
+            resultDiv.classList.add('hidden');
+        }
+
+        function rowBoat() {
+            document.getElementById('story').innerHTML = `
+                <h1>Navegando no Lago</h1>
+                <p>Você decide navegar no lago. A barca desliza suavemente sobre a água e você encontra uma pequena ilha no centro do lago. Na ilha, há uma caixa misteriosa e uma árvore com frutos dourados. Você pode:</p>
+                <span class="option" onclick="openBox()">Abrir a caixa</span>
+                <span class="option" onclick="pickFruits()">Pegar alguns frutos dourados</span>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function exploreForest() {
+            document.getElementById('story').innerHTML = `
+                <h1>Explorando a Floresta</h1>
+                <p>Você decide explorar a floresta ao redor do lago. Enquanto caminha, encontra uma trilha secreta que leva a uma cabana antiga. Dentro da cabana, há um velho livro e um mapa antigo. Você pode:</p>
+                <span class="option" onclick="readBook()">Ler o livro</span>
+                <span class="option" onclick="followMap()">Seguir o mapa</span>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function enterCave() {
+            document.getElementById('story').innerHTML = `
+                <h1>Dentro da Caverna</h1>
+                <p>Você entra na caverna e a luz fica mais intensa. Você encontra uma pedra brilhante e um caminho que leva ainda mais fundo na caverna. Você pode:</p>
+                <span class="option" onclick="takeStone()">Pegar a pedra brilhante</span>
+                <span class="option" onclick="exploreFurther()">Explorar mais fundo na caverna</span>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function inspectCaveEntrance() {
+            document.getElementById('story').innerHTML = `
+                <h1>Inspecionando a Entrada da Caverna</h1>
+                <p>Você decide inspecionar a entrada da caverna e encontra uma mensagem entalhada na rocha que diz: "Somente o coração puro encontrará o verdadeiro tesouro". Você pode:</p>
+                <span class="option" onclick="enterCave()">Entrar na caverna</span>
+                <span class="option" onclick="leaveCave()">Deixar a caverna e voltar</span>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function openBox() {
+            document.getElementById('story').innerHTML = `
+                <h1>A Caixa Misteriosa</h1>
+                <p>Você abre a caixa e encontra uma chave dourada. A chave tem um brilho mágico e parece que pode abrir algo importante. Você decide:</p>
+                <span class="option" onclick="searchForLock()">Procurar por uma fechadura</span>
+                <span class="option" onclick="leaveIsland()">Deixar a ilha</span>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function pickFruits() {
+            document.getElementById('story').innerHTML = `
+                <h1>Frutos Dourados</h1>
+                <p>Você pega alguns frutos dourados e come um. Você se sente instantaneamente revigorado e percebe que há uma mensagem mágica nos frutos. A mensagem diz: "Retorne ao início para uma nova chance". Você decide:</p>
+                <span class="option" onclick="restart()">Voltar ao início</span>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function readBook() {
+            document.getElementById('story').innerHTML = `
+                <h1>O Livro Antigo</h1>
+                <p>Você lê o livro e descobre que ele é um manual sobre a floresta. O livro revela que o verdadeiro tesouro está escondido no lago. Você decide:</p>
+                <span class="option" onclick="returnToLake()">Voltar ao lago</span>
+                <span class="option" onclick="exploreCabin()">Explorar mais a cabana</span>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function followMap() {
+            document.getElementById('story').innerHTML = `
+                <h1>Seguindo o Mapa</h1>
+                <p>Você decide seguir o mapa e encontra um local escondido na floresta. Lá, há um baú enterrado. Você abre o baú e encontra um tesouro escondido! Parabéns!</p>
+                <div class="option" onclick="restart()">Voltar ao início</div>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function takeStone() {
+            document.getElementById('story').innerHTML = `
+                <h1>A Pedra Brilhante</h1>
+                <p>Você pega a pedra brilhante e, ao tocá-la, a caverna começa a se transformar em um local mágico e cheio de riquezas. Você encontrou um tesouro oculto na caverna! Parabéns!</p>
+                <div class="option" onclick="restart()">Voltar ao início</div>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function exploreFurther() {
+            document.getElementById('story').innerHTML = `
+                <h1>Explorando Mais Fundo</h1>
+                <p>Você decide explorar mais fundo e encontra um portal mágico que leva a um reino encantado. Lá, você é saudado como um herói e descobre que sua jornada apenas começou!</p>
+                <div class="option" onclick="restart()">Voltar ao início</div>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function leaveCave() {
+            document.getElementById('story').innerHTML = `
+                <h1>Saindo da Caverna</h1>
+                <p>Você decide deixar a caverna e voltar ao início da sua jornada. A aventura continua a partir daqui.</p>
+                <div class="option" onclick="restart()">Voltar ao início</div>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function returnToLake() {
+            document.getElementById('story').innerHTML = `
+                <h1>Retornando ao Lago</h1>
+                <p>Você retorna ao lago e usa a chave dourada que encontrou anteriormente. A chave abre um compartimento secreto no fundo do lago, revelando um grande tesouro! Parabéns!</p>
+                <div class="option" onclick="restart()">Voltar ao início</div>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function exploreCabin() {
+            document.getElementById('story').innerHTML = `
+                <h1>Explorando a Cabana</h1>
+                <p>Você decide explorar mais a cabana e encontra um pergaminho antigo. O pergaminho revela a localização de um tesouro escondido na floresta. Parabéns, você encontrou um grande tesouro!</p>
+                <div class="option" onclick="restart()">Voltar ao início</div>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+
+        function restart() {
+            document.getElementById('story').innerHTML = `
+                <h1>Aventura na Floresta Encantada</h1>
+                <p>Você está em uma floresta encantada, cheia de mistérios e maravilhas. À sua frente, há uma bifurcação no caminho. Você pode seguir pelo caminho da esquerda, onde há rumores de um lago mágico, ou pelo caminho da direita, que leva a uma caverna misteriosa.</p>
+                <div id="options">
+                    <span class="option" onclick="choosePath('left')">Seguir pelo caminho da esquerda</span>
+                    <span class="option" onclick="choosePath('right')">Seguir pelo caminho da direita</span>
+                </div>
+            `;
+            document.getElementById('result').classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
